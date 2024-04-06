@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Buyer extends Model
+{
+    use HasFactory;
+    protected $fillable = [
+        'last_name',
+        'first_name',
+        'middle_name',
+        'residence_address',
+        'years_of_residency',
+        'type_of_house',
+        'civil_status',
+        'birthday',
+        'sex',
+        'citizenship',
+        'religion',
+        'tin',
+        'highest_education',
+        'telephone_number',
+        'mobile_number',
+        'number_of_dependents',
+        'email_address',
+        'facebook_account',
+        'co_owner_last_name',
+        'co_owner_first_name',
+        'co_owner_middle_name',
+        'co_owner_residence_address',
+        'co_owner_years_of_residency',
+        'co_owner_birthday',
+        'co_owner_sex',
+        'co_owner_citizenship',
+        'co_owner_religion',
+        'co_owner_tin',
+        'co_owner_highest_education',
+        'co_owner_civil_status',
+        'co_owner_email_address',
+        'co_owner_telephone_number',
+        'co_owner_mobile_number',
+        'relationship_with_buyer',
+        'attorney_last_name',
+        'attorney_first_name',
+        'attorney_middle_name',
+        'attorney_residence_address',
+        'attorney_years_of_residency',
+        'attorney_citizenship',
+        'attorney_birthday',
+        'attorney_sex',
+        'attorney_religion',
+        'attorney_tin',
+        'attorney_email_address',
+        'attorney_telephone_number',
+        'attorney_mobile_number',
+        'attorney_facebook_account',
+        'attorney_relationship_with_buyer',
+        'employment_status',
+        'business_name',
+        'business_location',
+        'industry',
+        'date_employed_established',
+        'employment_position',
+        'annual_income',
+        'office_business_phone_number',
+        'website',
+        'employment_email_address',
+    ];
+}
