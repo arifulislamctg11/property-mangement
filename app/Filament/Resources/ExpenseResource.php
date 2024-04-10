@@ -5,31 +5,42 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ExpenseResource\Pages;
 use App\Filament\Resources\ExpenseResource\RelationManagers;
 use App\Models\Expense;
+use App\Models\Property;
+use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
+
 
 class ExpenseResource extends Resource
 {
     protected static ?string $model = Expense::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
     public static function form(Form $form): Form
     {
+        $defaultEvNumber = Str::random(8);
+        $formData['ev_number'] = $defaultEvNumber;
         return $form
             ->schema([
+                // Forms\Components\TextInput::make('ev_number')
                 Forms\Components\TextInput::make('ev_number')
-                    ->required()
+                    ->default($defaultEvNumber)
+                    ->readOnly()
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('date')
                     ->required(),
-                Forms\Components\TextInput::make('property')
-                    ->maxLength(255)
+                Select::make('property_id')
+                    ->label('Property')
+                    ->options(Property::all()->pluck('property_name', 'id'))
+                    ->searchable()
                     ->default(null),
                 Forms\Components\TextInput::make('amount')
                     ->required()

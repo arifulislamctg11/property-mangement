@@ -17,4 +17,8 @@ class Expense extends Model
         'supplier',
         'description',
     ];
+    public function property()
+    {
+        return $this->belongsTo(Property::class, 'property_name', 'property');
+    }
 }

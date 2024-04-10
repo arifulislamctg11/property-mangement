@@ -13,6 +13,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Section;
+
 
 class BuyerResource extends Resource
 {
@@ -24,6 +26,7 @@ class BuyerResource extends Resource
     {
         return $form
             ->schema([
+                // Section::make('Rate limiting')
                 Forms\Components\TextInput::make('last_name')
                     ->required()
                     ->maxLength(255),
