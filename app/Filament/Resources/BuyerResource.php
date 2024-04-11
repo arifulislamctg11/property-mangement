@@ -26,220 +26,232 @@ class BuyerResource extends Resource
     {
         return $form
             ->schema([
-                // Section::make('Rate limiting')
-                Forms\Components\TextInput::make('last_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('first_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('middle_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('residence_address')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('years_of_residency')
-                    ->required()
-                    ->numeric(),
-                Select::make('type_of_house')
-                    ->options([
-                        'Owned' => 'Owned',
-                        'Rend/board' => 'Rend/board',
-                    ])->required(),
-                Select::make('civil_status')
-                    ->options([
-                        'Single' => 'Single',
-                        'Married' => 'Married',
-                        'other' => 'other',
-                    ])
-                    ->required(),
-                Forms\Components\DatePicker::make('birthday')
-                    ->required(),
-                Select::make('sex')
-                    ->options([
-                        'Male' => 'Male',
-                        'Female' => 'Female',
-                        'Other' => 'Other',
-                    ])
-                    ->required(),
-                Forms\Components\TextInput::make('citizenship')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('religion')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('tin')
-                    ->maxLength(255)
-                    ->default(null),
-                Select::make('highest_education')
-                    ->options([
-                        'High School Grad' => 'High School Grad',
-                        'College Grad' => 'College Grad',
-                        'Other' => 'Other',
-                    ]),
-                Forms\Components\TextInput::make('telephone_number')
-                    ->tel()
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('mobile_number')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('number_of_dependents')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('email_address')
-                    ->email()
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('facebook_account')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_last_name')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_first_name')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_middle_name')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_residence_address')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_years_of_residency')
-                    ->numeric()
-                    ->default(null),
-                Forms\Components\DatePicker::make('co_owner_birthday'),
-                Select::make('co_owner_sex')
-                    ->options([
-                        'Male' => 'Male',
-                        'Female' => 'Female',
-                        'Other' => 'Other',
-                    ])
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_citizenship')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_religion')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_tin')
-                    ->maxLength(255)
-                    ->default(null),
-                Select::make('co_owner_highest_education')->options([
-                    'High School Grad' => 'High School Grad',
-                    'College Grad' => 'College Grad',
-                    'Other' => 'Other',
-                ])
+                Section::make('PERSONAL INFORMATION')
+                    ->schema([
+                        Forms\Components\TextInput::make('last_name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('first_name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('middle_name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('residence_address')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('years_of_residency')
+                            ->required()
+                            ->numeric(),
+                        Select::make('type_of_house')
+                            ->options([
+                                'Owned' => 'Owned',
+                                'Rend/board' => 'Rend/board',
+                            ])->required(),
+                        Select::make('civil_status')
+                            ->options([
+                                'Single' => 'Single',
+                                'Married' => 'Married',
+                                'other' => 'other',
+                            ])
+                            ->required(),
+                        Forms\Components\DatePicker::make('birthday')
+                            ->required(),
+                        Select::make('sex')
+                            ->options([
+                                'Male' => 'Male',
+                                'Female' => 'Female',
+                                'Other' => 'Other',
+                            ])
+                            ->required(),
+                        Forms\Components\TextInput::make('citizenship')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('religion')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('tin')
+                            ->maxLength(255)
+                            ->default(null),
+                        Select::make('highest_education')
+                            ->options([
+                                'High School Grad' => 'High School Grad',
+                                'College Grad' => 'College Grad',
+                                'Other' => 'Other',
+                            ]),
+                        Forms\Components\TextInput::make('telephone_number')
+                            ->tel()
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('mobile_number')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('number_of_dependents')
+                            ->required()
+                            ->numeric(),
+                        Forms\Components\TextInput::make('email_address')
+                            ->email()
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('facebook_account')
+                            ->maxLength(255)
+                            ->default(null),
 
-                    ->default(null),
-                Select::make('co_owner_civil_status')
-                    ->options([
-                        'Single' => 'Single',
-                        'Married' => 'Married',
-                        'other' => 'other',
-                    ])
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_email_address')
-                    ->email()
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_telephone_number')
-                    ->tel()
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('co_owner_mobile_number')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('relationship_with_buyer')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_last_name')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_first_name')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_middle_name')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_residence_address')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_years_of_residency')
-                    ->numeric()
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_citizenship')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\DatePicker::make('attorney_birthday'),
-                Select::make('attorney_sex')
-                    ->options([
-                        'Male' => 'Male',
-                        'Female' => 'Female',
-                        'Other' => 'Other',
-                    ])
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_religion')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_tin')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_email_address')
-                    ->email()
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_telephone_number')
-                    ->tel()
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_mobile_number')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_facebook_account')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('attorney_relationship_with_buyer')
-                    ->maxLength(255)
-                    ->default(null),
-                Select::make('employment_status')
-                    ->options([
-                        'Self-Employed' => 'Self-Employed',
-                        'Government Employee' => 'Government Employee',
-                        'Employed Private Company' => 'Employed Private Company',
-                        'OFW' => 'OFW',
-                        'Other' => 'Other',
-                    ])
-                    ->default(null),
-                Forms\Components\TextInput::make('business_name')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('business_location')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('industry')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\DatePicker::make('date_employed_established'),
-                Forms\Components\TextInput::make('employment_position')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('annual_income')
-                    ->numeric()
-                    ->default(null),
-                Forms\Components\TextInput::make('office_business_phone_number')
-                    ->tel()
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('website')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('employment_email_address')
-                    ->email()
-                    ->maxLength(255)
-                    ->default(null),
+                    ])->columns(2),
+                Section::make('Co-Owner\'s Information')
+                    ->schema([
+                        Forms\Components\TextInput::make('co_owner_first_name')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_middle_name')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_last_name')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_residence_address')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_years_of_residency')
+                            ->numeric()
+                            ->default(null),
+                        Forms\Components\DatePicker::make('co_owner_birthday'),
+                        Select::make('co_owner_sex')
+                            ->options([
+                                'Male' => 'Male',
+                                'Female' => 'Female',
+                                'Other' => 'Other',
+                            ])
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_citizenship')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_religion')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_tin')
+                            ->maxLength(255)
+                            ->default(null),
+                        Select::make('co_owner_highest_education')->options([
+                            'High School Grad' => 'High School Grad',
+                            'College Grad' => 'College Grad',
+                            'Other' => 'Other',
+                        ])
+                            ->default(null),
+                        Select::make('co_owner_civil_status')
+                            ->options([
+                                'Single' => 'Single',
+                                'Married' => 'Married',
+                                'other' => 'other',
+                            ])
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_email_address')
+                            ->email()
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_telephone_number')
+                            ->tel()
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('co_owner_mobile_number')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('relationship_with_buyer')
+                            ->maxLength(255)
+                            ->default(null),
+                    ])->columns(2),
+                Section::make('Attorney-In-Fact Information')
+                    ->schema([
+                        Forms\Components\TextInput::make('attorney_last_name')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_first_name')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_middle_name')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_residence_address')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_years_of_residency')
+                            ->numeric()
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_citizenship')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\DatePicker::make('attorney_birthday'),
+                        Select::make('attorney_sex')
+                            ->options([
+                                'Male' => 'Male',
+                                'Female' => 'Female',
+                                'Other' => 'Other',
+                            ])
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_religion')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_tin')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_email_address')
+                            ->email()
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_telephone_number')
+                            ->tel()
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_mobile_number')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_facebook_account')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('attorney_relationship_with_buyer')
+                            ->maxLength(255)
+                            ->default(null),
+                    ])->columns(2),
+                Section::make('Employment Information')
+                    ->schema([
+                        Select::make('employment_status')
+                            ->options([
+                                'Self-Employed' => 'Self-Employed',
+                                'Government Employee' => 'Government Employee',
+                                'Employed Private Company' => 'Employed Private Company',
+                                'OFW' => 'OFW',
+                                'Other' => 'Other',
+                            ])
+                            ->default(null),
+                        Forms\Components\TextInput::make('business_name')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('business_location')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('industry')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\DatePicker::make('date_employed_established'),
+                        Forms\Components\TextInput::make('employment_position')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('annual_income')
+                            ->numeric()
+                            ->default(null),
+                        Forms\Components\TextInput::make('office_business_phone_number')
+                            ->tel()
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('website')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('employment_email_address')
+                            ->email()
+                            ->maxLength(255)
+                            ->default(null),
+                    ])->columns(2),
+
             ]);
     }
 
