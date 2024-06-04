@@ -20,7 +20,8 @@ return new class extends Migration
             $table->decimal('total_contract_price', 10, 2);
             $table->decimal('lot_area', 10, 2)->nullable();
             $table->decimal('floor_area', 10, 2)->nullable();
-            $table->string('block')->nullable();
+            $table->string('block_no')->nullable();
+            $table->string('lot_no');
             $table->decimal('equity', 10, 2)->nullable();
             $table->decimal('loanable_amount', 10, 2)->nullable();
             $table->timestamps();

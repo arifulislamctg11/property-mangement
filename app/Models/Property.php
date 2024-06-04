@@ -17,7 +17,8 @@ class Property extends Model
         'total_contract_price',
         'lot_area',
         'floor_area',
-        'block',
+        'block_no',
+        'lot_no',
         'equity',
         'loanable_amount',
     ];

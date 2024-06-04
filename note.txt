@@ -1,0 +1,307 @@
+php artisan make:filament-resource SalesReceipt --generate --view
+php artisan make:filament-resource Client --generate --view
+php artisan make:filament-resource PaymentReceipt --generate --view
+
+php artisan make:filament-resource Company --soft-deletes
+
+php artisan filament:clear-cached-components
+
+php artisan make:filament-user
+
+php artisan make:model SalesReceipt -m
+
+
+
+Give me a model for below:
+
+Last Name*				
+First Name*					
+Middle Name*	
+Residence Address*									
+Yrs. of Residency*	
+Type of House :(drop down: Owned, Rent/Board, Living with [parents/relatives])                            
+Civil Status  :(Radio selection: Single, Married , Other) 
+Birthday (mm/dd/yyyy)
+Sex:Radio selection:Male,Female	
+Citizenship
+Religion
+TIN
+Highest Education (drop down : High School Grad, College Grad,Other)
+Telephone Number
+Mobile Number*
+Number of Dependents*	
+Email Address
+Facebook Account						
+Co-Owner's Information(below all the )		
+Last Name				
+First Name					
+Middle Name	
+Residence Address									
+Yrs. of Residency	
+Birthday (mm/dd/yyyy)		
+Sex                Male	             Female	
+Citizenship		
+Religion			
+TIN	
+Highest Education               High School Grad                           College Grad                           Other					_____________________		
+Civil Status            Single                     Married                    Other:_______________			
+Email Address			
+Telephone Number		
+Mobile Number				
+Relationship with Buyer	
+Attorney-In-Fact Information										
+Last Name				
+First Name					
+Middle Name	
+Residence Address									
+Yrs. of Residency	
+Citizenship
+Birthday (mm/dd/yyyy)		
+Sex                Male	             Female	
+Citizenship		
+Religion			
+TIN	
+Email Address			
+Telephone Number		
+Mobile Number		
+Facebook Account		
+Relationship with Buyer	
+Employment Information										
+Status              Self-Employed                           Government Employee                                Employed Private Company                                OFW                         Other:_______________________										
+Business Name / Company Name					
+Location/Address					
+Industry		
+Date Employed/Established			
+Employment Status		
+Position/Level		
+Annual Income	
+Office/Business Phone No.			
+Website			
+Email Address	
+
+
+
+Give me a Model and Migrate by the name of Broker Accreditation for below:
+
+Name of Realty*					
+Lead Broker*	(Team Leader of the broker) (name of realtor company)								
+Office Address : 
+Telephone No.
+Mobile No.*
+Email Address:
+Website	
+No. of Yrs. In Operation: (numerical Yrs)
+Real Estate/Broker License No.*	
+Valid from [date]
+Valid Until [date]
+Placed Issued
+[xxxxxxxx]								
+Auhtorized Representative:
+Designation: 
+TIN No. (COMPANY)*
+
+
+--------------------------------------------------
+php artisan make:migration create_broker_accreditations_table
+php artisan make:migration create_buyers_table
+php artisan make:model BrokerAccreditation
+php artisan make:model Buyer
+php artisan make:filament-resource BrokerAccreditation --generate --view
+php artisan make:filament-resource Buyer --generate --view
+
+
+
+
+
+________________________________________________________________________________________
+
+Give me a Model and Migrate by the name of Buyer for below:
+
+CLIENT INFORMATION - PERSONAL INFORMATION										
+Last Name*				
+First Name*					
+Middle Name*	
+Residence Address*
+Yrs. of Residency*	
+Type of House - drop down (Owned, Rent/Board, Living with [parents/relatives])
+Civil Status  - drop down (  Single, Married, Other)
+Birthday (mm/dd/yyyy),
+Sex   - drop down ( Male, Female)
+Citizenship:
+Religion:
+TIN:
+Highest Education: drop down (High School Grad, College Grad, Other)
+Telephone Number:
+Mobile Number*		
+Number of Dependents*	
+Email Address:
+Facebook Account:
+Co-Owner's Information:
+Last Name: 
+First Name:
+Middle Name:
+Residence Address:
+Yrs. of Residency:
+Birthday (mm/dd/yyyy)
+Sex- drop down (Male,Female)
+Citizenship:
+Religion:
+TIN:
+Highest Education - drop down (High School Grad,College Grad, other ):
+Civil Status: drop down (Single,Married,Other:_______________)
+Email Address:
+Telephone Number:
+Mobile Number:
+Relationship with Buyer	:
+Attorney-In-Fact Information										
+Last Name:
+First Name:
+Middle Name:
+Residence Address:
+Yrs. of Residency:
+Citizenship:
+Birthday (mm/dd/yyyy)
+Sex: drop down (Male, Female)
+Citizenship:
+Religion:
+TIN:	
+Email Address;
+Telephone Number:
+Mobile Number:
+Facebook Account:
+Relationship with Buyer	:
+Employment Information										
+Status: drop down (Self-Employed, Government Employee,Employed Private Company,OFW,Other:_______________________)
+Business Name / Company Name:
+Location/Address:
+Industry:
+Date Employed/Established:
+Employment Status:
+Position/Level:
+Annual Income:
+Office/Business Phone No.
+Website:
+Email Address				
+_________________________________________________________________________________________________________________________
+
+php artisan make:migration create_sales_people_table
+php artisan make:model SalesPerson
+php artisan make:filament-resource SalesPerson --generate --view
+
+
+Give me a Model and Migrate by the name of SalesPerson for below:
+
+Sale Agent Accreditation Form								
+Sales Person Personal Information								
+Last Name:
+First Name:
+Middle Name:
+Home Address:								
+Gender drop down ( Male, Female)	
+Civil Status:  drop down (  Single, Married, Other)
+Citizenship:
+Mobile No.:
+Birthdate:
+Email Address:
+Facebook Account:
+Highest Education: drop down (High School Grad,College Grad, other ):
+Civil Status: drop down (Single,Married,Other:_______________),
+TIN No.	:
+Name of Unit/Sales Manager:
+Name of Realty:
+
+______________________________________________________________________________________
+
+php artisan make:migration create_brokers_table
+php artisan make:model Broker 
+php artisan make:filament-resource Broker --generate --view
+
+Give me a Model and Migrate by the name of broker for below:
+								
+Name of Realty*	(name of realtor company)				
+Lead Broker*	(Team Leader of the broker)		
+Office Address:
+Telephone No.
+Mobile No.*
+Email Address:
+Website:
+No. of Yrs. In Operation: (numerical Yrs)
+Real Estate/Broker License No.*
+Valid from: [date]
+Valid Until [date]
+Placed Issued : [xxxxxxxx]
+Auhtorized Representative
+Designation
+TIN No. (COMPANY)*
+ADMIN (BY DEFAULT):XXXXXXXXXXX
+
+
+______________________________________________________________________________________
+
+Give me a Model and Migrate by the name of ACKNOWLEDGEMENTRECEIPT
+for below:
+
+
+		
+DATE	XXX	AUTO CURRENT, EDITABLE
+RECEIPT NUMBER	XXX	AUTO
+CLIENT NAME	ACBC 	DROPDOWN SEARCH buyer name shal fetch from the model call buyer
+CLIENT ADRESS	XXXXX	AUTOMATICALY COME NOT EDITABLE buyer address shal fetch from the model call buyer
+BLOCK  NUMBER	XXXXX	DROP DOWN
+LOT NUMBER		DROP DOWN SELECTION
+HOUSE MODEL		AUTO
+FLOOR AREA		AUTO
+AMOUNT PAID		
+TYPE	PARTIAL / FULL	DROP DOWN
+
+
+_______________________________________________________________________________
+
+php artisan make:migration create_expenses_table
+php artisan make:model Expense 
+php artisan make:filament-resource Expense --generate --view
+
+Give me a Model and Migrate by the name of Expense for below:
+
+
+EV No.	XXXXXX	(AUTOMATED NUMBER)			
+DATE	3/24/2024	
+PROPERTY
+AMOUNT
+INVOICE NUMER	XXXXX	
+SUPPLIER 
+DESCRIPTION
+___________________________________________________________________________________
+
+php artisan make:migration create_Properties_table
+php artisan make:model Property 
+php artisan make:filament-resource Property --generate --view
+
+Give me a Model and Migrate by the name of Property for below:
+
+
+Property Name
+Location
+Model Type
+Description
+Total Contract Price
+Lot Area
+Floor Area
+Block
+Total Contract Price
+Lot Area
+Floor Area
+Block
+Lot
+Equity
+Loanable Amount
+
+
+____________________________________________________
+php artisan make:filament-resource User --generate --view
+
+EV Number shall auto generate not editable 
+property shall comes from property master 
+there is no property master form 
+
+

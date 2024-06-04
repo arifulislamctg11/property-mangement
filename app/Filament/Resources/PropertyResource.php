@@ -43,7 +43,10 @@ class PropertyResource extends Resource
                 Forms\Components\TextInput::make('floor_area')
                     ->numeric()
                     ->default(null),
-                Forms\Components\TextInput::make('block')
+                Forms\Components\TextInput::make('block_no')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('lot_no')
                     ->maxLength(255)
                     ->default(null),
                 Forms\Components\TextInput::make('equity')
@@ -74,7 +77,7 @@ class PropertyResource extends Resource
                 Tables\Columns\TextColumn::make('floor_area')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('block')
+                Tables\Columns\TextColumn::make('block_no')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('equity')
                     ->numeric()
